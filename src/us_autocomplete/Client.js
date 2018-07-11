@@ -47,7 +47,8 @@ class Client {
 		}
 
 		function buildSuggestionsFromResponse(payload) {
-			return (payload || []).suggestions.map(suggestion => new Suggestion(suggestion));
+			let suggestions = (payload && payload.suggestions) || []
+			return suggestions.map(suggestion => new Suggestion(suggestion));
 		}
 	}
 }
